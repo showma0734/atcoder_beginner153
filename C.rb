@@ -11,14 +11,15 @@ end
 
 def fennec(n, k, h_arr)
   return nil unless valid?(n, k, h_arr)
-  return h_arr.sum if k == 0 
+  return h_arr.sum if k == 0
+  return 0 if n < k 
   h_arr = h_arr.sort.reverse
-  h_arr = h_arr[1..-k]
+  h_arr = h_arr[k..-1]
   h_arr.sum
 end
 
 #test
-puts fennec(3, 1, [4, 1, 5]) == 5
+puts fennec(4, 2, [4, 1, 1, 5]) == 2
 puts fennec(8, 9, [7, 9, 3, 2, 3, 8, 4, 6]) == 0
 puts fennec(3, 0, [1000, 1000, 1000]) == 3000
 puts fennec(1, 1, [1]) == 0
